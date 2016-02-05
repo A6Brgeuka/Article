@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="App">
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel="stylesheet" href="vendor/bower_components/bootstrap/dist/css/bootstrap.css">
+    <!--libs-->
+    <script src="vendor/bower_components/angular/angular.js"></script>
+    <script src="vendor/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!--app & config-->
+    <script src="js/app.module.js"></script>
+    <script src="js/app.config.js"></script>
+    <!--Controllers-->
+    <script src="js/Controllers/coreCtrl.js"></script>
+    <script src="js/Controllers/articlesCtrl/articleCtrl.js"></script>
+    <script src="js/Controllers/articlesCtrl/articleCreateCtrl.js"></script>
+    <script src="js/Controllers/authCtrl/signUpCtrl.js"></script>
+    <script src="js/Controllers/authCtrl/signInCtrl.js"></script>
+    <!--Services-->
+    <script src="js/Services/signService.js"></script>
+  </head>
+  <body ng-controller="CoreCtrl as cc" class="container">
+    <%-partial('./partials/nav')%>
+    <div ui-view>
+
+    </div>
+
+    <script src="vendor/bower_components/jquery/dist/jquery.js"></script>
+    <script src="vendor/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  </body>
+</html>

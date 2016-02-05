@@ -1,0 +1,24 @@
+{
+  "port" : 3000,
+  "mongoose": {
+    "uri": "mongodb://localhost/articles",
+
+    "options" : {
+      "server" : {
+        "socketOptions" : {
+          "keepAlive" : 1
+        }
+      }
+    }
+  },
+  "session":{
+    "secret": "KillBill",
+    "key": "sid",
+    "cookie":{
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
+  }
+
+}
