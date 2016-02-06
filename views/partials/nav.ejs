@@ -30,17 +30,13 @@
                 <li><a ui-sref="signin">Login</a></li>
                 <li><a ui-sref="signup" style=" margin-right: 30px;">Register</a></li>
                 <% } else { %>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="margin-right: 30px">
-                        <%=user.username%> <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a ui-sref="signout"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                    </ul>
+                <li>
+                    <a href="#"><%=user.username%></a>
+                </li>
+                <li ng-controller="SignOutCtrl as soc">
+                  <a href="#" ng-click=soc.logout() style="margin-right:30px"><i class="fa fa-btn fa-sign-out" ></i>Logout</a>
                 </li>
                 <% } %>
-                <!--@endif-->
             </ul>
         </div>
     </div>

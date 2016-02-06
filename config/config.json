@@ -1,7 +1,7 @@
 {
   "port" : 3000,
   "mongoose": {
-    "uri": "mongodb://localhost/articles",
+    "uri": "mongodb://localhost/art",
 
     "options" : {
       "server" : {

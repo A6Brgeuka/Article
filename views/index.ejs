@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="App">
+<html ng-app="blog">
   <head>
     <title></title>
     <link rel='stylesheet' href='css/style.css' />
@@ -7,20 +7,41 @@
     <!--libs-->
     <script src="vendor/bower_components/angular/angular.js"></script>
     <script src="vendor/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="vendor/bower_components/angular-strap/dist/angular-strap.js"></script>
+    <script src="vendor/bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
+
+    <!-- <script src="gulpjs/index.js"> -->
+
+
     <!--app & config-->
-    <script src="js/app.module.js"></script>
-    <script src="js/app.config.js"></script>
-    <!--Controllers-->
-    <script src="js/Controllers/coreCtrl.js"></script>
-    <script src="js/Controllers/articlesCtrl/articleCtrl.js"></script>
-    <script src="js/Controllers/articlesCtrl/articleCreateCtrl.js"></script>
-    <script src="js/Controllers/authCtrl/signUpCtrl.js"></script>
-    <script src="js/Controllers/authCtrl/signInCtrl.js"></script>
-    <!--Services-->
-    <script src="js/Services/signService.js"></script>
+    <!-- module -->
+    <script src="app/app.module.js"></script>
+    <script src="app/core/core.module.js"></script>
+    <script src="app/blocks/blocks.module.js"></script>
+    <script src="app/blocks/services/services.module.js"></script>
+    <script src="app/pages/article/article.module.js"></script>
+    <script src="app/pages/auth/auth.module.js"></script>
+
+    <script src="app/app.config.js"></script>
+    <script src="app/pages/article/article.config.js"></script>
+    <script src="app/pages/auth/auth.config.js"></script>
+    <!-- <script src="app/pages/auth/signIn/signIn.config.js"></script>
+    <script src="app/pages/auth/signUp/signUp.config.js"></script> -->
+
+    <script src="app/blocks/services/article.service.js"></script>
+    <script src="app/blocks/services/auth.service.js"></script>
+
+    <script src="app/core/core.controller.js"></script>
+    <script src="app/pages/article/list/article.controller.js"></script>
+    <script src="app/pages/article/new/create.controller.js"></script>
+    <script src="app/pages/auth/signIn/signIn.controller.js"></script>
+    <script src="app/pages/auth/signUp/signUp.controller.js"></script>
+    <script src="app/pages/auth/signOut/signOut.controller.js"></script>
+
   </head>
-  <body ng-controller="CoreCtrl as cc" class="container">
+  <body ng-controller="CoreController as cc" class="container">
     <%-partial('./partials/nav')%>
+    <div ng-include="nav.ejs"></div>
     <div ui-view>
 
     </div>
