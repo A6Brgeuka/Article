@@ -3,15 +3,15 @@
 
     angular
         .module("blog.auth")
-        .controller('SignOutCtrl', signOutCtrl);
+        .controller('SignOutController', signOutController);
 
 
-    signOutCtrl.$inject = ['signService'];
+    signOutController.$inject = ['SignService'];
 
-    function signOutCtrl(signService){
-        var soc = this;
+    function signOutController(signService){
+        var vm = this;
 
-        soc.logout = logout;
+        vm.logout = logout;
 
         function logout() {
             signService

@@ -20,7 +20,7 @@
                 .then(function(res){
                     vm.user = res;
                     console.log("res: " + res);
-                    //document.location.href = '/';
+                    document.location.href = '/';
                 })
                 .catch(function(err){
                     console.log("err: " + err);

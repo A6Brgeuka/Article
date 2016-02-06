@@ -13,7 +13,7 @@
             templateUrl:'app/pages/article/list/articles.ejs'
           })
           .state("articles.create", {
-            url: "/article/create",
+            url: "/create",
             controller:"ArticleCreateController as acc",
             templateUrl:"app/pages/article/new/create.ejs"
           });
