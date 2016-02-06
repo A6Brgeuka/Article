@@ -7,9 +7,9 @@ var sourcemaps = require('gulp-sourcemaps');
 var isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 gulp.task('js', function(){
-  return gulp.src('public/js/**/**/*.js' /*, {base: 'frontend'}*/)
+  return gulp.src(['public/app/**/*.module.js', 'public/app/**/*.js'])
     .pipe(sourcemaps.init())
-    .pipe(concat('index.js'))
+    .pipe(concat('main.js'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('public/gulpjs'));
+    .pipe(gulp.dest('public/js'));
 });
