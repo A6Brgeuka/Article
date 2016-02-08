@@ -17,18 +17,12 @@
 
         /////////
 
-        function signIn(username, password){
-            return $http.post('/auth/signin', {
-                username : username,
-                password : password
-            });
+        function signIn(user){
+            return $http.post('/auth/signin', user);
         }
 
-        function signUp(username, password){
-            return $http.post('/auth/signup', {
-                username : username,
-                password : password
-            })
+        function signUp(user){
+            return $http.post('/auth/signup', user)
         }
 
         function signOut() {

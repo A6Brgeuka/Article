@@ -16,6 +16,11 @@
             url: "/create",
             controller:"ArticleCreateController as acc",
             templateUrl:"app/pages/article/new/create.ejs"
+          })
+          .state("articles.details", {
+            url: "/:articleId",
+            controller:"ArticleDetailsController as adc",
+            templateUrl:"app/pages/article/details/details.ejs"
           });
     };
 })();

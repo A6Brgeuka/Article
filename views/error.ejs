@@ -1,3 +1,12 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<% layout('layout/page')%>
+
+    <h1><%= message %></h1>
+    <h2>You will redirect to Home through 10 секунд</h2>
+    <h2><%= error.status %></h2>
+    <pre><%= error.stack %></pre>
+
+    <script type="text/javascript">
+      setTimeout(function() {
+        document.location.href = '/';
+      }, 10000)
+    </script>

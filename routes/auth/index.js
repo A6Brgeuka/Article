@@ -12,10 +12,10 @@ router.post('/signin', function(req, res, next){
 
     User.singIn(username, password, function(err, user){
         if(err) {
-            res.json({err: err.messsage});
+          res.status(401).json({"err": err.message});
         } else {
-            req.session.user = user._id;
-            res.json({true: true});
+          req.session.user = user._id;
+          res.json({true: true});
         }
     });
 });
@@ -26,18 +26,18 @@ router.post('/signup', function(req, res, next){
 
     User.signUp(username, password, function(err, user){
         if(err) {
-            res.json({err: err.messsage});
+          res.status(401).json({"err": err.message})
         } else {
-            req.session.user = user._id;
-            res.json({true: true});
+          req.session.user = user._id;
+          res.json({user: user});
         }
     });
 });
 
 router.post('/signout', function (req, res, next) {
     req.session.destroy(function (err) {
-        if(err) return res.json(err);
-        res.json({});
+      if(err) return res.json(err);
+      res.json({});
     });
 })
 

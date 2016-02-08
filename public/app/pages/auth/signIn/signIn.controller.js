@@ -10,20 +10,20 @@
     function signInController(signService){
         var vm = this;
         vm.login = login;
-        vm.username = '';
-        vm.password = '';
+        vm.user = {};
 
         function login(){
             signService
-                .signIn(vm.username, vm.password)
-                .then(function(res){
-                    vm.user = res;
-
+                .signIn(vm.user)
+                .then(function(response){
+                    vm.data = response.data;
                     document.location.href = '/';
                 })
-                .catch(function(err){
-                    console.log(err);
-                    alert("FATAL ERROR FROM SIGNiNCTRL");
+                .catch(function(error){
+                    console.log(error.data.err);
+                })
+                .finally(function () {
+                  console.log("finaly");
                 });
         }
     }

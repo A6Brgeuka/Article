@@ -11,20 +11,20 @@
     function signUpController(signService){
         var vm = this;
         vm.register = register;
-        vm.username = '';
-        vm.password = '';
+        vm.user = {};
 
         function register(){
             signService
-                .signUp(vm.username, vm.password)
+                .signUp(vm.user)
                 .then(function(res){
-                    vm.user = res;
-                    console.log("res: " + res);
+                    vm.data = res.data;
                     document.location.href = '/';
                 })
-                .catch(function(err){
-                    console.log("err: " + err);
-                    //alert(err);
+                .catch(function(error){
+                    console.log(error.data.err);
+                })
+                .finally(function () {
+                  console.log("finaly");
                 });
         }
     }
