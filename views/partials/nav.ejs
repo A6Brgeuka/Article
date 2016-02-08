@@ -24,20 +24,30 @@
           </ul>
 
           <!-- Right Side Of Navbar -->
-          <ul class="nav navbar-nav navbar-right">
+          <div ng-controller="SignTempController as stc">
               <!-- Authentication Links -->
-            <% if (!user) { %>
-              <li><a ui-sref="signin">Login</a></li>
-              <li><a ui-sref="signup" style=" margin-right: 30px;">Register</a></li>
-            <% } else { %>
-              <li>
-                <a href="#"><%=user.username%></a>
-              </li>
-              <li ng-controller="SignOutController as soc">
-                <a href="#" ng-click=soc.logout() style="margin-right:30px"><i class="fa fa-btn fa-sign-out" ></i>Logout</a>
-              </li>
-            <% } %>
-          </ul>
+            <!-- <% if (!user) { %> -->
+            <div ng-if="!stc.isAuth">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref="signin">Login</a></li>
+                <li><a ui-sref="signup" style=" margin-right: 30px;">Register</a></li>
+              </ul>
+              </div>
+
+            <!-- <% } else { %> -->
+            <div>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="#">{{stc.user.username}}</a>
+                </li>
+                <li ng-controller="SignOutController as soc">
+                  <a href="#" ng-click=soc.logout() style="margin-right:30px"><i class="fa fa-btn fa-sign-out" ></i>Logout</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- <% } %> -->
+          </div>
         </div>
     </div>
 </nav>

@@ -6,9 +6,13 @@
         .controller('SignUpController', signUpController);
 
 
-    signUpController.$inject = ['SignService'];
+    signUpController.$inject = [
+      'SignService',
+      'localStorageService',
+      '$state'
+    ];
 
-    function signUpController(signService){
+    function signUpController(signService, localStorageService, $state){
         var vm = this;
         vm.register = register;
         vm.user = {};
@@ -17,11 +21,16 @@
             signService
                 .signUp(vm.user)
                 .then(function(res){
-                    vm.data = res.data;
-                    document.location.href = '/';
+                  localStorageService.set('user', response.data.token);
+                  document.location.href = '/';
+                  // $state.transitionTo("articles", {}, {
+                  //   reload: true,
+                  //   inherit: false,
+                  //   notify: true
+                  // });
                 })
                 .catch(function(error){
-                    console.log(error.data.err);
+                  console.log(error.data.err);
                 })
                 .finally(function () {
                   console.log("finaly");

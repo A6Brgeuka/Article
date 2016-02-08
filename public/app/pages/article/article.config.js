@@ -1,10 +1,12 @@
 (function () {
 
-    angular.module("blog.article").config(config);
+    angular
+      .module("blog.article")
+      .config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-    function config($stateProvider) {
+    function config($stateProvider, $urlRouterProvider) {
 
         $stateProvider
           .state("articles", {

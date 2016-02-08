@@ -2,29 +2,39 @@
     'use strict';
 
     angular
-        .module("blog.auth")
-        .controller('SignInController', signInController);
+      .module("blog.auth")
+      .controller('SignInController', signInController);
 
-    signInController.$inject = ['SignService'];
+    signInController.$inject = [
+      'SignService',
+      'localStorageService',
+      '$state'
+    ];
 
-    function signInController(signService){
-        var vm = this;
-        vm.login = login;
-        vm.user = {};
+    function signInController(SignService, localStorageService, $state){
+      var vm = this;
+      vm.login = login;
+      vm.user = {};
 
-        function login(){
-            signService
-                .signIn(vm.user)
-                .then(function(response){
-                    vm.data = response.data;
-                    document.location.href = '/';
-                })
-                .catch(function(error){
-                    console.log(error.data.err);
-                })
-                .finally(function () {
-                  console.log("finaly");
-                });
+      function login(){
+        SignService
+          .signIn(vm.user)
+          .then(function(response){
+            localStorageService.set('user', response.data.token);
+
+            document.location.href = '/';
+            // $state.transitionTo("articles", {}, {
+            //   reload: true,
+            //   inherit: false,
+            //   notify: true
+            // });
+          })
+          .catch(function(error){
+            console.log(error.data.err);
+          })
+          .finally(function () {
+            console.log("finaly");
+          });
         }
     }
 })();

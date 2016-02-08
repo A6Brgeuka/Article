@@ -2,28 +2,37 @@
     'use strict';
 
     angular
-        .module("blog.auth")
-        .controller('SignOutController', signOutController);
+      .module("blog.auth")
+      .controller('SignOutController', signOutController);
 
 
-    signOutController.$inject = ['SignService'];
+    signOutController.$inject = [
+      'SignService',
+      'localStorageService',
+      '$state'
+    ];
 
-    function signOutController(signService){
-        var vm = this;
+    function signOutController(SignService, localStorageService, $state){
+      var vm = this;
 
-        vm.logout = logout;
+      vm.logout = logout;
 
-        function logout() {
-            signService
-                .signOut()
-                .then(function(res){
-                    document.location.href = '/';
-                })
-                .catch(function (err) {
-                    console.log(err);
-                    alert("FATAL ERROOOORRRRRRRR");
-                })
-
-        }
+      function logout() {
+        SignService
+          .signOut()
+          .then(function(res){
+            localStorageService.remove('user');
+            document.location.href = '/';
+            // $state.transitionTo("articles", {}, {
+            //   reload: true,
+            //   inherit: false,
+            //   notify: true
+            // });
+          })
+          .catch(function (err) {
+              console.log(err);
+              alert("FATAL ERROOOORRRRRRRR");
+          });
+      }
     }
 })();

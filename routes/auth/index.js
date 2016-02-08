@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var User = require('models/user').User;
+var jwt = require('jsonwebtoken');
+var secret = require('config').get('session:secret');
 
 router.get('/', function(req, res, next){
     console.log('get: auth');
@@ -15,7 +17,13 @@ router.post('/signin', function(req, res, next){
           res.status(401).json({"err": err.message});
         } else {
           req.session.user = user._id;
-          res.json({true: true});
+
+          console.log(user);
+          console.log(secret);
+
+          jwt.sign(user, secret, { expiresInMinutes: 60*5 }, function (token) {
+            res.json({"token": token});
+          })
         }
     });
 });
@@ -29,7 +37,9 @@ router.post('/signup', function(req, res, next){
           res.status(401).json({"err": err.message})
         } else {
           req.session.user = user._id;
-          res.json({user: user});
+          jwt.sign(user, secret, { expiresInMinutes: 60*5 }, function (token) {
+            res.json({"token": token});
+          })
         }
     });
 });

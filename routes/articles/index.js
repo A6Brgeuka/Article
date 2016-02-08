@@ -7,7 +7,7 @@ var Article = require('models/article').Article;
 router.get("/", function (req, res, next) {
   Article.getArticles(function (err, articles) {
     if (err) return res.status(500).json({"err": err.message});
-    console.log(1);
+    
     res.json({"articles" : articles});
   });
 });
