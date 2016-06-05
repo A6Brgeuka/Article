@@ -10,11 +10,11 @@
     function config($stateProvider) {
 
       $stateProvider
-        .state('auth', {
-          abstract: true,
-          url: '/auth',
-          templateUrl : '<ui-view/>'
-        })
+        // .state('auth', {
+        //   abstract: true,
+        //   // url: '/auth',
+        //   templateUrl : '<div ui-view></div>'
+        // })
         .state("signin", {
           url: "/signin",
           controller: "SignInController as sic",

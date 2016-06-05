@@ -13,6 +13,7 @@
         vm.article = {};
         vm.create = create;
 
+
         function create() {
           ArticleService
             .create(vm.article)

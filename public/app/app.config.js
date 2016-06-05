@@ -17,7 +17,10 @@
               url: "",
               templateUrl: "app/pages/home/home.ejs"
           });
+
+        $urlRouterProvider.otherwise("/");
+
         localStorageServiceProvider
-          .setPrefix('blog');
+          .setPrefix('blog');      
     }
 })();

@@ -4,6 +4,7 @@
       'mgcrea.ngStrap.alert',
       'blog.blocks',
       'LocalStorageModule',
-      'angular-jwt'
+      'angular-jwt',
+      'textAngular'
     ]);
 })();

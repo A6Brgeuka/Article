@@ -18,23 +18,23 @@
         vm.user = {};
 
         function register(){
-            signService
-                .signUp(vm.user)
-                .then(function(res){
-                  localStorageService.set('user', response.data.token);
-                  document.location.href = '/';
-                  // $state.transitionTo("articles", {}, {
-                  //   reload: true,
-                  //   inherit: false,
-                  //   notify: true
-                  // });
-                })
-                .catch(function(error){
-                  console.log(error.data.err);
-                })
-                .finally(function () {
-                  console.log("finaly");
-                });
+          signService
+              .signUp(vm.user)
+              .then(function(res){
+                localStorageService.set('user', res.data.token);
+                document.location.href = '/';
+                // $state.transitionTo("articles", {}, {
+                //   reload: true,
+                //   inherit: false,
+                //   notify: true
+                // });
+              })
+              .catch(function(error){
+                console.log(error.data.err);
+              })
+              .finally(function () {
+                console.log("finaly");
+              });
         }
     }
 })();

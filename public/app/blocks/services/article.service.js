@@ -22,14 +22,14 @@
         }
 
         function create(article){
-            return $http.post('/articles/create', {
+            return $http.post('/articles/', {
                 title : article.title,
                 body : article.body
             });
         }
 
         function get(articleId) {
-          return $http.get('/articles/details/' + articleId);
+          return $http.get('/articles/' + articleId);
         }
     }
 })();

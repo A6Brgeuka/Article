@@ -1,15 +1,23 @@
-<div>
-  <h1>Articles</h1>
+<content class="container">
+  <h1 class="container">Articles</h1>
   <hr>
   <div ui-view>
-    <a ui-sref="articles.create">Create Article</a>
-    <div ng-repeat="article in ac.articles">
-      <h2>
-        <a ui-sref="articles.details({articleId:article._id})">{{article.title}}</a>
-      </h2>
-      <div class="body">
-        {{article.body}}
-      </div>
-    </div>
+
   </div>
-</div>
+
+  <a ui-sref="articles.create" class="btn btn-info btn-lg">
+    New Article
+  </a>
+  <article ng-repeat="article in ac.articles">
+    <h2>
+      <a ui-sref="articles.details({articleId:article._id})">{{article.title}}</a>
+    </h2>
+    <!-- <div class="body">
+      {{article.body}}
+    </div> -->
+
+    <pre>
+      <div ta-bind ng-model="article.body"></div>
+    </pre>
+  </article>
+</content>

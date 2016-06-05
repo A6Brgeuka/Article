@@ -4,6 +4,8 @@
     <title></title>
     <link rel='stylesheet' href='css/style.css' />
     <link rel="stylesheet" href="vendor/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/bower_components/font-awesome/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="vendor/bower_components/textAngular/dist/textAngular.css">
     <!--libs-->
     <script src="vendor/bower_components/jquery/dist/jquery.js"></script>
     <script src="vendor/bower_components/angular/angular.js"></script>
@@ -12,12 +14,19 @@
     <script src="vendor/bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
     <script src="vendor/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="vendor/bower_components/angular-jwt/dist/angular-jwt.js" charset="utf-8"></script>
+
+    <script src='vendor/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
+    <script src='vendor/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
+    <script src='vendor/bower_components/textAngular/dist/textAngular.min.js'></script>
+    <!-- <script src='vendor/bower_components/textAngular/dist/textAngularSetup.js'></script> -->
     <!-- <script src="gulpjs/index.js"> -->
     <script src="js/main.js"></script>
 
   </head>
   <body ng-controller="CoreController as cc" class="container">
-    <%-partial('../partials/nav')%>
+    
+    <%- partial('../partials/nav') %>
+
     <%- body %>
 
 

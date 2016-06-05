@@ -25,17 +25,17 @@
 
           <!-- Right Side Of Navbar -->
           <div ng-controller="SignTempController as stc">
-              <!-- Authentication Links -->
-            <!-- <% if (!user) { %> -->
+            <!-- Authentication Links -->
+
             <div ng-if="!stc.isAuth">
               <ul class="nav navbar-nav navbar-right">
-                <li><a ui-sref="signin">Login</a></li>
-                <li><a ui-sref="signup" style=" margin-right: 30px;">Register</a></li>
+                <li><a ui-sref="signin"><i class="fa fa-btn fa-sign-in"></i>Login</a></li>
+                <li><a ui-sref="signup" style=" margin-right: 30px;"><i class="fa fa-btn fa-sign-in"></i>Register</a></li>
               </ul>
-              </div>
+            </div>
 
-            <!-- <% } else { %> -->
-            <div>
+
+            <div ng-if="stc.isAuth">
               <ul class="nav navbar-nav navbar-right">
                 <li>
                   <a href="#">{{stc.user.username}}</a>
@@ -46,7 +46,7 @@
               </ul>
             </div>
 
-            <!-- <% } %> -->
+
           </div>
         </div>
     </div>
